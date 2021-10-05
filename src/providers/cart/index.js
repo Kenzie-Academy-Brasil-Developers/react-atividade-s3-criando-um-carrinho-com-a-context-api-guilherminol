@@ -1,4 +1,4 @@
-import { useState, createContext } from "react-redux";
+import { useState, createContext } from "react";
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={(cart, addToCart, removeFromCart)}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
