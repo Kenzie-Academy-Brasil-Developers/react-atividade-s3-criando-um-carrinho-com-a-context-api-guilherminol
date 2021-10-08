@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 import { CatalogueContext } from "../../providers/catalogue";
+import { ButtonStyled } from "./style";
 
 const Button = ({ type, item }) => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
@@ -17,6 +18,6 @@ const Button = ({ type, item }) => {
       addToCatalogue(item);
     }
   };
-  return <button onClick={handleClick}>{text}</button>;
+  return <ButtonStyled onClick={handleClick}>{text}</ButtonStyled>;
 };
 export default Button;

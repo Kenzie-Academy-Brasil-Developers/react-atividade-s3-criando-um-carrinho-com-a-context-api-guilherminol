@@ -14,6 +14,7 @@ export const CatalogueProvider = ({ children }) => {
   };
 
   const removeFromCatalogue = (item) => {
+    console.log(item);
     const newCatalogue = catalogue.filter((unity) => {
       return unity.name !== item.name;
     });

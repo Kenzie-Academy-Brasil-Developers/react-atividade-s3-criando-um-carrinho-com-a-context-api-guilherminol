@@ -1,4 +1,6 @@
 import Button from "../button";
+import { Container } from "./style";
+import ProductCard from "../pruductCard";
 import { useContext } from "react";
 import { CatalogueContext } from "../../providers/catalogue/";
 import { CartContext } from "../../providers/cart/";
@@ -8,29 +10,17 @@ const ProductsList = ({ type }) => {
   const { catalogue } = useContext(CatalogueContext);
   const { cart } = useContext(CartContext);
   return (
-    <ul>
+    <Container>
       {type === "catalogue" &&
         catalogue.map((item, index) => {
-          return (
-            <li key={index}>
-              <p>{item.name}</p>
-              <p>{item.price}</p>
-              <Button type={type} item={item}></Button>
-            </li>
-          );
+          return <ProductCard type={type} item={item} key={index} />;
         })}
 
       {type === "cart" &&
         cart.map((item, index) => {
-          return (
-            <li key={index}>
-              <p>{item.name}</p>
-              <p>{item.price}</p>
-              <Button type={type} item={item}></Button>
-            </li>
-          );
+          return <ProductCard type={type} item={item} key={index} />;
         })}
-    </ul>
+    </Container>
   );
 };
 export default ProductsList;
